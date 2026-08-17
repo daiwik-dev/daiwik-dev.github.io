@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Study.ai</title>
+
+    <style>
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+        body {
+
+            margin: 0;
+
+            background: #151733;
+
+            color: #f2d36b;
+
+            font-family: Georgia, serif;
+
+        }
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 25px 0;
+
+        }
+
+        /* HEADER */
+
+        header {
+
+            text-align: center;
+
+            padding: 10px;
+
+        }
+
+        header h1 {
+
+            font-family: monospace;
+
+            font-size: 30px;
+
+            text-decoration: underline;
+
+            margin-bottom: 25px;
+
+        }
+
+        .line {
+
+            height: 2px;
+
+            background: #aaa;
+
+            margin-bottom: 20px;
+
+        }
+
+        /* FORM CARD */
+
+        .form-card {
+
+            background: #4c3c70;
+
+            border: 2px solid #080817;
+
+            border-radius: 16px;
+
+            padding: 32px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+        }
+
+        /* INPUTS */
+
+        .form-row {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .form-row label {
+
+            width: 290px;
+
+            text-align: right;
+
+            font-size: 19px;
+
+        }
+
+        .form-row input {
+
+            width: 320px;
+
+            height: 38px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            padding: 8px 15px;
+
+            font-size: 17px;
+
+            text-align: center;
+
+            outline: none;
+
+        }
+
+        .form-row input:focus {
+
+            box-shadow: 0 0 0 2px #8bc7ff;
+
+        }
+
+        /* CLASS SELECTION */
+
+        .class-selection {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+        .class-selection p {
+
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
+        }
+
+        /* CLASS BUTTONS - COLUMN */
+
+        .class-option {
+
+            display: block;
+
+            width: 180px;
+
+            margin: 10px auto;
+
+            cursor: pointer;
+
+        }
+
+        /* HIDE ORIGINAL RADIO */
+
+        .class-option input {
+
+            display: none;
+
+        }
+
+        /* CLASS BUTTON */
+
+        .class-option span {
+
+            display: block;
+
+            padding: 10px 25px;
+
+            background: #30264f;
+
+            color: #f2d36b;
+
+            border: 2px solid #8c5be8;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            transition: 0.2s;
+
+        }
+
+        /* SELECTED CLASS */
+
+        .class-option input:checked + span {
+
+            background: #087edb;
+
+            color: white;
+
+            border-color: #91cfff;
+
+            transform: scale(1.05);
+
+        }
+
+        /* MARKSHEET BUTTON */
+
+        .mark-button {
+
+            display: block;
+
+            margin: 25px auto 0;
+
+            background: #087edb;
+
+            color: white;
+
+            border: 2px solid #91cfff;
+
+            border-radius: 25px;
+
+            padding: 8px 25px;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .mark-button:hover {
+
+            background: #056bbd;
+
+            transform: scale(1.03);
+
+        }
+
+        /* STUDY.AI CARD */
+
+        .intro-card {
+
+            margin: 45px 15px 90px;
+
+            min-height: 310px;
+
+            background: linear-gradient(
+
+                120deg,
+
+                #32166b,
+
+                #4b1684
+
+            );
+
+            border: 1px solid #8c5be8;
+
+            border-radius: 12px;
+
+            padding: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 40px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+
+        }
+
+        /* ROBOT */
+
+        .robot {
+
+            width: 220px;
+
+            height: 220px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 110px;
+
+            background: radial-gradient(
+
+                circle,
+
+                #b96cff,
+
+                #45117c
+
+            );
+
+            box-shadow: 0 0 30px #a94dff;
+
+        }
+
+        .intro-content {
+
+            flex: 1;
+
+        }
+
+        .intro-content h2 {
+
+            font-size: 27px;
+
+            margin-top: 0;
+
+        }
+
+        .intro-content p {
+
+            color: #e8d67d;
+
+            line-height: 1.6;
+
+            font-size: 15px;
+
+        }
+
+        /* FEATURES */
+
+        .features {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            gap: 10px;
+
+        }
+
+        .feature {
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #f2d36b;
+
+        }
+
+        .feature-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            margin: auto auto 8px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #5620a0;
+
+            border: 1px solid #9a5be8;
+
+            font-size: 22px;
+
+        }
+
+        /* ABOUT */
+
+        .about {
+
+            border-top: 2px solid #999;
+
+            background: #48134f;
+
+            padding: 45px 35px;
+
+            min-height: 300px;
+
+        }
+
+        .about h2 {
+
+            font-size: 27px;
+
+            margin-top: 0;
+
+        }
+
+        .about p {
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: #e9d77b;
+
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+
+                font-size: 24px;
+
+            }
+
+            .form-card {
+
+                padding: 25px 15px;
+
+            }
+
+            .form-row {
+
+                flex-direction: column;
+
+                gap: 5px;
+
+            }
+
+            .form-row label {
+
+                width: 100%;
+
+                text-align: center;
+
+                font-size: 17px;
+
+            }
+
+            .form-row input {
+
+                width: 90%;
+
+            }
+
+            .intro-card {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 25px 15px;
+
+            }
+
+            .robot {
+
+                width: 160px;
+
+                height: 160px;
+
+                font-size: 80px;
+
+            }
+
+            .features {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 25px;
+
+            }
+
+            .feature {
+
+                width: 40%;
+
+            }
+
+            .about {
+
+                padding: 35px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <h1>
+
+                WELCOME TO study.ai
+
+            </h1>
+
+            <div class="line"></div>
+
+        </header>
+
+        <!-- STUDENT FORM -->
+
+        <section class="form-card">
+
+            <!-- FIRST NAME -->
+
+            <div class="form-row">
+
+                <label for="firstName">
+
+                    Enter Your First Name:-
+
+                </label>
+
+                <input
+
+                    type="text"
+
+                    id="firstName"
+
+                    placeholder="your first name"
+
+                    onkeydown="
+
+                        if(event.key === 'Enter') {
+
+                            event.preventDefault();
+
+                            document.getElementById('lastName').focus();
+
+                        }
+
+                    "
+
+                >
+
+            </div>
+
+            <!-- SECOND NAME -->
+
+            <div class="form-row">
+
+                <label for="lastName">
+
+                    Enter Your Second Name:-
+
+                </label>
+
+                <input
+
+                    type="text"
+
+                    id="lastName"
+
+                    placeholder="your last name"
+
+                    onkeydown="
+
+                        if(event.key === 'Enter') {
+
+                            event.preventDefault();
+
+                            document.getElementById('phone').focus();
+
+                        }
+
+                    "
+
+                >
+
+            </div>
+
+            <!-- PHONE NUMBER -->
+
+            <div class="form-row">
+
+                <label for="phone">
+
+                    Enter Your Mobile No.
+
+                </label>
+
+                <input
+
+                    type="tel"
+
+                    id="phone"
+
+                    placeholder="phone number"
+
+                    maxlength="10"
+
+                    inputmode="numeric"
+
+                    oninput="
+
+                        this.value =
+
+                        this.value
+
+                        .replace(/[^0-9]/g, '')
+
+                        .slice(0, 10);
+
+                    "
+
+                    onkeydown="
+
+                        if(event.key === 'Enter') {
+
+                            event.preventDefault();
+
+                            goToMarksheet();
+
+                        }
+
+                    "
+
+                >
+
+            </div>
+
+            <!-- CLASS SELECTION -->
+
+            <div class="class-selection">
+
+                <p>
+
+                    Select Your Class
+
+                </p>
+
+                <label class="class-option">
+
+                    <input
+
+                        type="radio"
+
+                        name="class"
+
+                        value="11"
+
+                    >
+
+                    <span>
+
+                        Class 11
+
+                    </span>
+
+                </label>
+
+                <label class="class-option">
+
+                    <input
+
+                        type="radio"
+
+                        name="class"
+
+                        value="12"
+
+                    >
+
+                    <span>
+
+                        Class 12
+
+                    </span>
+
+                </label>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button
+
+                class="mark-button"
+
+                onclick="goToMarksheet()"
+
+            >
+
+                Go to class
+
+            </button>
+
+        </section>
+
+        <!-- STUDY.AI INTRO -->
+
+        <section class="intro-card">
+
+            <div class="robot">
+
+                <img src="ai.jpg">
+
+            </div>
+
+            <div class="intro-content">
+
+                <h2>
+
+                    Hi! I am<br>
+
+                    your Study.ai
+
+                </h2>
+
+                <p>
+
+                    Study.ai is your smart learning companion
+
+                    designed to make studying easier, smarter,
+
+                    and more effective. We help students identify
+
+                    their weak areas, improve their understanding,
+
+                    and achieve better results with personalized
+
+                    guidance and AI-powered insights.
+
+                </p>
+
+                <!-- FEATURES -->
+
+                <div class="features">
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+
+                            📖
+
+                        </div>
+
+                        Smart Learning
+
+                    </div>
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+
+                            📈
+
+                        </div>
+
+                        Performance Insights
+
+                    </div>
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+
+                            🧠
+
+                        </div>
+
+                        AI-Powered Guidance
+
+                    </div>
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+
+                            🎓
+
+                        </div>
+
+                        Better Results
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ABOUT -->
+
+        <section class="about">
+
+            <h2>
+
+                About Study.ai
+
+            </h2>
+
+            <p>
+
+                Study.ai is a student-focused learning platform
+
+                created to make studying easier, smarter, and
+
+                more enjoyable.
+
+            </p>
+
+            <p>
+
+                Our goal is to help students improve their
+
+                knowledge, build confidence, and achieve better
+
+                academic results.
+
+            </p>
+
+            <p>
+
+                We believe every student deserves access to
+
+                simple, effective, and innovative learning tools.
+
+            </p>
+
+        </section>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function goToMarksheet() {
+
+            const firstName =
+
+                document
+
+                .getElementById("firstName")
+
+                .value
+
+                .trim();
+
+            const lastName =
+
+                document
+
+                .getElementById("lastName")
+
+                .value
+
+                .trim();
+
+            const phone =
+
+                document
+
+                .getElementById("phone")
+
+                .value
+
+                .trim();
+
+            const selectedClass =
+
+                document.querySelector(
+
+                    'input[name="class"]:checked'
+
+                );
+
+            /* CHECK FIRST NAME */
+
+            if (firstName === "") {
+
+                alert(
+
+                    "Please enter your first name!"
+
+                );
+
+                document
+
+                .getElementById("firstName")
+
+                .focus();
+
+                return;
+
+            }
+
+            /* CHECK SECOND NAME */
+
+            if (lastName === "") {
+
+                alert(
+
+                    "Please enter your second name!"
+
+                );
+
+                document
+
+                .getElementById("lastName")
+
+                .focus();
+
+                return;
+
+            }
+
+            /* CHECK PHONE */
+
+            if (phone.length !== 10) {
+
+                alert(
+
+                    "Please enter a valid 10-digit mobile number!"
+
+                );
+
+                document
+
+                .getElementById("phone")
+
+                .focus();
+
+                return;
+
+            }
+
+            /* CHECK CLASS */
+
+            if (!selectedClass) {
+
+                alert(
+
+                    "Please select Class 11 or Class 12!"
+
+                );
+
+                return;
+
+            }
+
+            /* OPEN CLASS PAGE */
+
+            if (selectedClass.value === "11") {
+
+                window.location.href =
+
+                    "class11.html";
+
+            }
+
+            else if (selectedClass.value === "12") {
+
+                window.location.href =
+
+                    "class12.html";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
