@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: #222;
+}
+
+
+/* ---------------- HEADER ---------------- */
+
+header {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 0;
+}
+
+
+/* ---------------- CHAT ---------------- */
+
+.chat-container {
+    width: 90%;
+    max-width: 850px;
+    margin: 35px auto 120px;
+}
+
+
+/* Study.ai heading */
+
+.chat-header {
+    margin-bottom: 35px;
+}
+
+.chat-header h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    margin: 0 0 12px;
+}
+
+.chat-header p {
+    margin: 0;
+    color: #555;
+}
+
+
+/* ---------------- MESSAGES ---------------- */
+
+#chatMessages {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+/* AI message */
+
+.message {
+    display: flex;
+    gap: 12px;
+    line-height: 1.6;
+}
+
+.ai-message {
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.message-content {
+    max-width: 700px;
+}
+
+.message-content strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.message-content p {
+    margin: 0;
+}
+
+
+/* User message */
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background: #f0f0f0;
+
+    padding: 10px 16px;
+
+    border-radius: 18px;
+
+    max-width: 70%;
+}
+
+.user-message strong {
+    display: none;
+}
+
+
+/* ---------------- INPUT ---------------- */
+
+.input-area {
+    position: fixed;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 850px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ccc;
+
+    border-radius: 25px;
+
+    padding: 6px 8px 6px 16px;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+#questionInput {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+
+    padding: 10px;
+
+    background: transparent;
+}
+
+
+#questionInput::placeholder {
+    color: #999;
+}
+
+
+#sendButton {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#sendButton:hover {
+    background: #333;
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 600px) {
+
+    header {
+        width: 94%;
+        margin-top: 25px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .chat-container {
+        width: 94%;
+        margin-top: 25px;
+    }
+
+    .user-message .message-content {
+        max-width: 80%;
+    }
+
+    .input-area {
+        width: 94%;
+        bottom: 12px;
+    }
+}
